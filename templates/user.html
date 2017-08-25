@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Cash My Ride</title>
+
+<link href='https://fonts.googleapis.com/css?family=Montserrat|Indie+Flower' rel='stylesheet' type='text/css'>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<style>
+.borderless tbody tr td, .borderless tbody tr th, .borderless thead tr th {
+    border: none;
+}
+</style>
+
+</head>
+
+<body>
+
+<a href="/settings">Settings</a> | <a href="/logout">Logout</a>
+
+<div class="jumbotron" style="background-color: #46B2E8;">
+<p align="middle">
+    {% if athlete['profile'] %}
+	<img src="{{athlete['profile']}}" class="img-circle">
+    {% else %}
+	<img src="{{static_url('images/bike.gif')}}" class="img-circle">
+    {% end %}
+</p>
+<h2 align="middle" style="font-family: 'Indie Flower', cursive; color: #585858;">
+    {{athlete['firstname']}} {{athlete['lastname']}}
+</h2>
+</div>
+
+<p style="text-align: center">
+Commutes after 1st of {{context['month']}} {{context['year']}}
+</p>
+
+<div class="container">
+<table class="table borderless" style="text-align: center">
+    <tbody>
+        <tr>
+            <td class="col-md-4">
+                <h2 style="color: orange">{{context['count_commutes']}}</h2>
+            </td>
+
+            <td class="col-md-4">
+                <h2 style="color: orange">{{context['commute_distance']}}</h2>
+            </td>
+
+            <td class="col-md-4">
+                <h2 style="color: orange">${{context['money_saved']}}</h2>
+            </td>
+        </tr>
+        <tr>
+            <td><h4>rides</h4></td>
+            <td><h4>km</h4></td>
+            <td><h4>saved</h4></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+</body>
+
+</html>
