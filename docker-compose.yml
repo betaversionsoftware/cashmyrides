@@ -1,14 +1,14 @@
 version: '2'
 services:
   web:
-    image: cashmyrides
+    build: . 
     command: ./docker-entrypoint.sh
     volumes:
       - .:/app
     links:
       - mongo
     ports:
-      - 8082:8082
+      - 8080:8080
     environment:
       - STRAVA_CLIENT_SECRET=${STRAVA_CLIENT_SECRET}
       - STRAVA_CLIENT_ID=${STRAVA_CLIENT_ID}

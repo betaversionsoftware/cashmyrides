@@ -1,0 +1,5 @@
+cashmyrides.com, www.cashmyrides.com {
+  proxy / localhost:8080 {
+    transparent
+  }
+}
